@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.2</junit.version>
-        <javafx.version>20.0.0</javafx.version> <!-- JavaFX version -->
+        <javafx.version>22.0.1</javafx.version> <!-- JavaFX version -->
         <hibernate.version>6.0.0.Final</hibernate.version> <!-- Hibernate version -->
         <ojdbc.version>19.8.0.0</ojdbc.version> <!-- Oracle JDBC version -->
         <jdk.version>17</jdk.version> <!-- JDK version -->
@@ -22,6 +22,10 @@
         <repository>
             <id>openjfx</id>
             <url>https://maven.openjfx.io</url>
+        </repository>
+        <repository>
+            <id>maven-central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
         </repository>
     </repositories>
 
@@ -44,6 +48,8 @@
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+
+        <!-- JPA API Dependency -->
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>javax.persistence-api</artifactId>
@@ -77,6 +83,13 @@
             <version>0.4.0</version>
         </dependency>
 
+        <!-- Lombok Dependency -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
