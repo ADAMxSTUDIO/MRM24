@@ -9,7 +9,7 @@ L’objectif du projet est de développer une application de bureau (desktop) po
 - **Hibernate (JPA)**
 - **JavaFX** pour l’interface utilisateur
 - **Architecture GUI-DAO-Métier**
-- **Base de données Oracle**
+- **Base de données Oracle (replaced by MySQL)**
 
 Le projet est limité à 4 classes métier et une interface qui contiendra toutes les méthodes à implémenter.
 
@@ -36,12 +36,14 @@ Le projet est limité à 4 classes métier et une interface qui contiendra toute
    - Fonction (ex : Infirmier, Médecin)
    - Spécialité
    - Numéro de téléphone
+   - Email
 
 3. **RendezVous**
    - ID (Primary Key)
    - Date et heure
    - PatientID (Foreign Key)
    - PersonnelID (Foreign Key)
+   - Raison
 
 4. **Chambre**
    - ID (Primary Key)
@@ -69,11 +71,11 @@ L’application suivra une architecture GUI-DAO-Métier :
 **GestionMaisonRetraite** :
 ```java
 public interface GestionMaisonRetraite {
-    void ajouter(Object obj);
-    void modifier(Object obj);
-    void supprimer(int id);
-    Object chercherParId(int id);
-    List<Object> lister();
+    void add(T o);
+    T get(Long id);
+    List<T> getAll();
+    void modify(T o, Long id);
+    void delete(Long id);
 }
 ```
 
