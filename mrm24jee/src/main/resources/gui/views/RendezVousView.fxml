@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="gui.controllers.RendezVousController">
+    <top>
+        <Label text="Gestion des Rendez-Vous" style="-fx-font-size: 20px;" BorderPane.alignment="CENTER"/>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <TableView fx:id="rendezVousTable">
+                <columns>
+                    <TableColumn text="ID" fx:id="idColumn"/>
+                    <TableColumn text="Date et Heure" fx:id="dateColumn"/>
+                    <TableColumn text="Patient" fx:id="patientColumn"/>
+                    <TableColumn text="Personnel" fx:id="personnelColumn"/>
+                    <TableColumn text="Raison" fx:id="reasonColumn"/>
+                </columns>
+            </TableView>
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Ajouter" onAction="#handleAddRendezVous"/>
+                <Button text="Modifier" onAction="#handleEditRendezVous"/>
+                <Button text="Supprimer" onAction="#handleDeleteRendezVous"/>
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox fx:id="formBox" spacing="10" visible="false">
+            <DatePicker fx:id="datePicker"/>
+            <TextField fx:id="timeField" promptText="Heure (HH:mm)"/>
+            <ComboBox fx:id="patientComboBox" promptText="Sélectionner un patient"/>
+            <ComboBox fx:id="personnelComboBox" promptText="Sélectionner un personnel"/>
+            <TextField fx:id="reasonField" promptText="Raison du rendez-vous"/>
+            <HBox spacing="10">
+                <Button text="Enregistrer" onAction="#handleSaveRendezVous"/>
+                <Button text="Annuler" onAction="#handleCancelEdit"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

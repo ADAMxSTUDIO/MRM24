@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="gui.controllers.PersonnelController">
+    <top>
+        <Label text="Gestion du Personnel" style="-fx-font-size: 20px;" BorderPane.alignment="CENTER"/>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <TableView fx:id="personnelTable">
+                <columns>
+                    <TableColumn text="ID" fx:id="idColumn"/>
+                    <TableColumn text="Nom" fx:id="nameColumn"/>
+                    <TableColumn text="Prénom" fx:id="prenomColumn"/>
+                    <TableColumn text="Titre de poste" fx:id="jobTitleColumn"/> <!-- Changed from functionTitleColumn -->
+                    <TableColumn text="Spécialité" fx:id="specialtyColumn"/>
+                    <TableColumn text="Téléphone" fx:id="phoneColumn"/>
+                    <TableColumn text="Email" fx:id="emailColumn"/>
+                </columns>
+            </TableView>
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Ajouter" onAction="#handleAddPersonnel"/>
+                <Button text="Modifier" onAction="#handleEditPersonnel"/>
+                <Button text="Supprimer" onAction="#handleDeletePersonnel"/>
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox fx:id="formBox" spacing="10" visible="false">
+            <TextField fx:id="nameField" promptText="Nom"/>
+            <TextField fx:id="prenomField" promptText="Prénom"/>
+            <TextField fx:id="jobTitleField" promptText="Titre de poste"/> <!-- Changed from functionField -->
+            <TextField fx:id="specialtyField" promptText="Spécialité"/>
+            <TextField fx:id="phoneField" promptText="Téléphone"/>
+            <TextField fx:id="emailField" promptText="Email"/>
+            <HBox spacing="10">
+                <Button text="Enregistrer" onAction="#handleSavePersonnel"/>
+                <Button text="Annuler" onAction="#handleCancelEdit"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="gui.controllers.PatientController">
+    <top>
+        <Label text="Gestion des Patients" style="-fx-font-size: 20px;" BorderPane.alignment="CENTER"/>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <TableView fx:id="patientTable">
+                <columns>
+                    <TableColumn text="ID" fx:id="idColumn"/>
+                    <TableColumn text="Nom" fx:id="nameColumn"/>
+                    <TableColumn text="Prénom" fx:id="prenomColumn"/>
+                    <TableColumn text="Date de Naissance" fx:id="dateOfBirthColumn"/>
+                    <TableColumn text="Adresse" fx:id="addressColumn"/>
+                    <TableColumn text="Téléphone" fx:id="phoneColumn"/>
+                    <TableColumn text="Historique Médical" fx:id="medicalHistoryColumn"/>
+                </columns>
+            </TableView>
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Ajouter" onAction="#handleAddPatient"/>
+                <Button text="Modifier" onAction="#handleEditPatient"/>
+                <Button text="Supprimer" onAction="#handleDeletePatient"/>
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox fx:id="formBox" spacing="10" visible="false">
+            <TextField fx:id="nameField" promptText="Nom"/>
+            <TextField fx:id="prenomField" promptText="Prénom"/>
+            <TextField fx:id="dateOfBirthField" promptText="Date de Naissance (YYYY-MM-DD)"/>
+            <TextField fx:id="addressField" promptText="Adresse"/>
+            <TextField fx:id="phoneField" promptText="Téléphone"/>
+            <TextArea fx:id="medicalHistoryField" promptText="Historique Médical" wrapText="true" prefRowCount="4"/>
+            <HBox spacing="10">
+                <Button text="Enregistrer" onAction="#handleSavePatient"/>
+                <Button text="Annuler" onAction="#handleCancelEdit"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

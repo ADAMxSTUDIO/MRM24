@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="gui.controllers.ChambreController">
+    <top>
+        <Label text="Gestion des Chambres" style="-fx-font-size: 20px;" BorderPane.alignment="CENTER"/>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <TableView fx:id="chambreTable">
+                <columns>
+                    <TableColumn text="ID" fx:id="idColumn"/>
+                    <TableColumn text="Numéro de chambre" fx:id="roomNumberColumn"/>
+                    <TableColumn text="Type de chambre" fx:id="roomTypeColumn"/>
+                    <TableColumn text="Disponible" fx:id="disponibleColumn"/>
+                </columns>
+            </TableView>
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Ajouter" onAction="#handleAddChambre"/>
+                <Button text="Modifier" onAction="#handleEditChambre"/>
+                <Button text="Supprimer" onAction="#handleDeleteChambre"/>
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox fx:id="formBox" spacing="10" visible="false">
+            <TextField fx:id="roomNumberField" promptText="Numéro de chambre"/>
+            <ComboBox fx:id="roomTypeComboBox" promptText="Type de chambre">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Individuelle"/>
+                        <String fx:value="Double"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <CheckBox fx:id="disponibleCheckBox" text="Disponible"/>
+            <HBox spacing="10">
+                <Button text="Enregistrer" onAction="#handleSaveChambre"/>
+                <Button text="Annuler" onAction="#handleCancelEdit"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
